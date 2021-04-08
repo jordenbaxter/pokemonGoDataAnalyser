@@ -15,38 +15,6 @@ if action=="Total Pokemon":
     exit()
 else:
     pass
-def ivchecking():
-    pyautogui.click(x=540, y=671)
-    pyautogui.moveTo(x=1160, y=395)
-    ss=pyautogui.screenshot(region=(520, 48, 325, 680))
-    ss=ss.save(namecreate+"-"+datecreate+"-"+str(noExistPokemon)+"-screenshot 1"+".png")
-    pyautogui.click(x=797, y=685)
-    sleep(0.2)
-    pyautogui.click(x=772, y=561)
-    sleep(0.2)
-    pyautogui.click(x=772, y=562)
-    sleep(0.2)
-    pyautogui.click(x=772, y=562)
-    sleep(0.19)
-    pyautogui.click(x=772, y=562)
-    sleep(0.3)
-    ss1=pyautogui.screenshot(region=(520, 48, 325, 680))
-    ss1=ss1.save(namecreate+"-"+datecreate+"-"+str(noExistPokemon)+"-screenshot 2"+".png")
-    pyautogui.click(x=541, y=667)
-    sleep(0.2)
-    pyautogui.moveTo(x=541, y=667)
-    pyautogui.mouseDown(button="left")
-    sleep(0.2)
-    pyautogui.moveTo(x=536, y=469)
-    sleep(0.1)
-    pyautogui.mouseUp(button="left")
-    sleep(0.3)
-    ss2=pyautogui.screenshot(region=(520, 48, 325, 680))
-    ss2=ss2.save(namecreate+"-"+datecreate+"-"+str(noExistPokemon)+"-screenshot 3"+".png")
-    pass
-    dir_name=curentdirplusnamecreate+"/"+namecreate+"-"+datecreate+"-"+str(noExistPokemon)
-    print("Done! The Pokemon has been created again but with more info.")
-    exit()
 if action=="Create a Pokemon":
     cpcreate=(int(input("Write down the CP of your Pokemon:- ")))
     hpcreate=(int(input("Write down the HP of your Pokemon:- ")))
@@ -60,6 +28,12 @@ if action=="Create a Pokemon":
     tradedcreate=(input("Was this Pokemon obtained from a trade?: "))
     shinycreate=(input("Is this Pokemon Shiny?: "))
     curentdirplusnamecreate=current_dir+"/"+namecreate
+    var=open(os.getcwd()+"/"+"variables_.txt","a+")
+    var.write(namecreate)
+    var.close()
+    var69=open(os.getcwd()+"/"+"variables_2.0.txt","a+")
+    var69.write(datecreate)
+    var69.close()
     if os.path.exists(curentdirplusnamecreate):
         pass
     else:
@@ -94,13 +68,21 @@ if action=="Create a Pokemon":
     createpokemon.write("Shiny="+shinycreate)
     createpokemon.write("\n")
     createpokemon.close()
+    var69420=curentdirplusnamecreate+"/"+namecreate+"-"+datecreate+"-"+str(noExistPokemon)
+    var69420dir=current_dir+"/directoryToSwitchTo.txt"
+    var_69420=open(var69420dir, "a+")
+    var_69420.write(var69420)
+    var_69420.close()
     print("The Pokemon has been created.")
     dir_name=curentdirplusnamecreate+"/"+namecreate+"-"+datecreate+"-"+str(noExistPokemon)
     screenshots=input("Do you wanna take screenshots of the Pokemon you just created?: ")
     if screenshots=="Yes":
         print("Alright, switch to scrcpy or any other screen mirroring application quick.")
         sleep(5)
+        from ivchecking import ivchecking
         ivchecking()
+        dir_name=curentdirplusnamecreate+"/"+namecreate+"-"+datecreate+"-"+str(noExistPokemon)
+        print("Done! The Pokemon has been created again but with more info.")
     else:
         print("Okay then.")
         pass
